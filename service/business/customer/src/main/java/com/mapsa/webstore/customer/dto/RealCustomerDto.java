@@ -13,7 +13,7 @@ import java.util.Date;
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
-public class RealCostumerDto {
+public class RealCustomerDto {
     @NotBlank(message = "make it clear that which customer this one is!")
     private Customer customer;
     // 0 for female   1 for male

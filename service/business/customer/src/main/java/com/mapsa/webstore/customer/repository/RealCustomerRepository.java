@@ -5,12 +5,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.List;
 
 @Repository
-public interface RealCustomerController extends JpaRepository <RealCustomer,Long> {
-    public RealCustomer findByFirstnameContaining(String firstname);
-    public RealCustomer findByLastnameContaining(String lastname);
-    public RealCustomer findByEmailAddressContaining(String email);
-    public RealCustomer findByPhoneNumberContaining(String phoneNumber);
-    public RealCustomer findByBirthDateContaining(Date birthDate);
+public interface RealCustomerRepository extends JpaRepository <RealCustomer,Long> {
+    List<RealCustomer>findByGenderContaining(Boolean gender);
+    RealCustomer findByFirstnameContaining(String firstname);
+    RealCustomer findByLastnameContaining(String lastname);
+    RealCustomer findByEmailAddressContaining(String email);
+    RealCustomer findByPhoneNumberContaining(String phoneNumber);
+    RealCustomer findByBirthDateContaining(Date birthDate);
 }
