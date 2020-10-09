@@ -1,15 +1,15 @@
 begin
-    execute immediate 'drop table category';
-    dbms_output.put_line('Table category dropped');
+    execute immediate 'drop table Category';
+    dbms_output.put_line('Table Category dropped');
 exception
-    when others then dbms_output.put_line('Table category id not exist');
+    when others then dbms_output.put_line('Table Category id not exist');
 end;
 /
 begin
-    execute immediate 'drop sequence category';
-    dbms_output.put_line('Sequence category dropped')
+    execute immediate 'drop sequence Category';
+    dbms_output.put_line('Sequence Category dropped')
 exception
-    when others then dbms_output.put_line('Sequence category id not exist');
+    when others then dbms_output.put_line('Sequence Category id not exist');
 end
 /
 create table category(
