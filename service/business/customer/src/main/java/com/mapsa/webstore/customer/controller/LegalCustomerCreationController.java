@@ -20,11 +20,6 @@ public class LegalCustomerCreationController {
     @Autowired
     private LegalCustomerService legalCustomerService;
 
-    @PostMapping("create")
-    public LegalCustomer createLegalCustomer(@RequestBody LegalCustomerDto legalCustomerDto){
-        return legalCustomerService.createLegalCustomer(legalCustomerDto);
-    }
-
     @PostMapping("update")
     public LegalCustomer updateCustomer(@RequestBody LegalCustomerUpdateDto legalCustomerDto, @RequestBody Long id){
         Optional<LegalCustomer> byId = legalCustomerService.findById(id);

@@ -1,9 +1,15 @@
 package com.mapsa.webstore.customer.service;
 
 import com.mapsa.webstore.customer.domain.Customer;
+import com.mapsa.webstore.customer.domain.LegalCustomer;
+import com.mapsa.webstore.customer.domain.RealCustomer;
 import com.mapsa.webstore.customer.dto.CustomerDto;
 import com.mapsa.webstore.customer.dto.CustomerUpdateDto;
+import com.mapsa.webstore.customer.dto.LegalCustomerDto;
+import com.mapsa.webstore.customer.dto.RealCustomerDto;
 import com.mapsa.webstore.customer.repository.CustomerRepository;
+import com.mapsa.webstore.customer.repository.LegalCustomerRepository;
+import com.mapsa.webstore.customer.repository.RealCustomerRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,12 +19,26 @@ import java.util.Optional;
 
 @Service
 public class CustomerService {
+
     @Autowired
     private CustomerRepository customerRepository;
+    @Autowired
+    private LegalCustomerRepository legalCustomerRepository;
+    @Autowired
+    private RealCustomerRepository realCustomerRepository;
+
     private ModelMapper mp = new ModelMapper();
-    public Customer createCustomer(CustomerDto customerDto){
+    public RealCustomer createRealCustomer(CustomerDto customerDto, RealCustomerDto realCustomerDto){
         Customer customer = mp.map(customerDto, Customer.class);
-        return customerRepository.save(customer);
+        RealCustomer realCustomer = mp.map(realCustomerDto,RealCustomer.class);
+        realCustomer.setCustomer(customer);
+        return realCustomerRepository.save(realCustomer);
+    }
+    public LegalCustomer createLegalCustomer(CustomerDto customerDto, LegalCustomerDto legalCustomerDto){
+        Customer customer = mp.map(customerDto, Customer.class);
+        LegalCustomer legalCustomer = mp.map(legalCustomerDto,LegalCustomer.class);
+        legalCustomer.setCustomer(customer);
+        return legalCustomerRepository.save(legalCustomer);
     }
     public Optional<Customer> findById(Long id){
         return customerRepository.findById(id);

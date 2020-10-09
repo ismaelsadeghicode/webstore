@@ -19,6 +19,10 @@ public class Customer {
     private Long code;
    /* @OneToOne(cascade = CascadeType.ALL)
     private Location locationId;*/
+    @OneToOne
+    private LegalCustomer legalCustomer;
+    @OneToOne
+    private RealCustomer realCustomer;
     private String type;
     private Long nationalCode;
     private ZonedDateTime insertLocalTime;

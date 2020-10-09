@@ -17,11 +17,6 @@ public class LegalCustomerService {
 
     private ModelMapper mp = new ModelMapper();
 
-    public LegalCustomer createLegalCustomer(LegalCustomerDto legalCustomerDto) {
-        LegalCustomer customer = mp.map(legalCustomerDto, LegalCustomer.class);
-        return legalCustomerRepository.save(customer);
-    }
-
     public Optional<LegalCustomer> findById(Long id) {
         return legalCustomerRepository.findById(id);
     }

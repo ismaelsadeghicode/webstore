@@ -21,11 +21,6 @@ public class RealCustomerService {
 
     private ModelMapper mp = new ModelMapper();
 
-    public RealCustomer createRealCustomer(RealCustomerDto realCustomerDto) {
-        RealCustomer customer = mp.map(realCustomerDto, RealCustomer.class);
-        return realCustomerRepository.save(customer);
-    }
-
     public Optional<RealCustomer> findById(Long id) {
         return realCustomerRepository.findById(id);
     }
