@@ -20,18 +20,18 @@ public class LegalCustomerCreationController {
     @Autowired
     private LegalCustomerService legalCustomerService;
 
-    @PostMapping
+    @PostMapping("create")
     public LegalCustomer createLegalCustomer(@RequestBody LegalCustomerDto legalCustomerDto){
         return legalCustomerService.createLegalCustomer(legalCustomerDto);
     }
 
-    @PostMapping
+    @PostMapping("update")
     public LegalCustomer updateCustomer(@RequestBody LegalCustomerUpdateDto legalCustomerDto, @RequestBody Long id){
         Optional<LegalCustomer> byId = legalCustomerService.findById(id);
         return legalCustomerService.update(legalCustomerDto,byId);
     }
 
-    @PostMapping
+    @PostMapping("delete")
     public void deleteCustomer(@RequestBody LegalCustomerDto legalCustomerDto, @RequestBody Long id){
         Optional<LegalCustomer> byId = legalCustomerService.findById(id);
         legalCustomerService.delete(byId);

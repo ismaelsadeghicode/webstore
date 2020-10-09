@@ -18,17 +18,17 @@ public class RealCustomerCreationController {
     @Autowired
     private RealCustomerService realCustomerService;
 
-    @PostMapping
+    @PostMapping("create")
     public RealCustomer createRealCustomer(@RequestBody RealCustomerDto realCustomerDto){
         return realCustomerService.createRealCustomer(realCustomerDto);
     }
-    @PostMapping
+    @PostMapping("update")
     public RealCustomer updateCustomer(@RequestBody RealCustomerUpdateDto realCustomerDto, @RequestBody Long id){
         Optional<RealCustomer> byId = realCustomerService.findById(id);
         return realCustomerService.update(realCustomerDto,byId);
     }
 
-    @PostMapping
+    @PostMapping("delete")
     public void deleteCustomer(@RequestBody RealCustomerDto realCustomerDto, @RequestBody Long id){
         Optional<RealCustomer> byId = realCustomerService.findById(id);
         realCustomerService.delete(byId);

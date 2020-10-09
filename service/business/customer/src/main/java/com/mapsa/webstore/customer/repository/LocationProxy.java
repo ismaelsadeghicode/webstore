@@ -1,3 +1,4 @@
+/*
 package com.mapsa.webstore.customer.repository;
 
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
@@ -8,3 +9,4 @@ import org.springframework.cloud.openfeign.FeignClient;
 @RibbonClient
 public interface LocationProxy {
 }
+*/

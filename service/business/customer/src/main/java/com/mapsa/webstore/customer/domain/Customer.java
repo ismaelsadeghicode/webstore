@@ -17,8 +17,8 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Long code;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Location locationId;
+   /* @OneToOne(cascade = CascadeType.ALL)
+    private Location locationId;*/
     private String type;
     private Long nationalCode;
     private ZonedDateTime insertLocalTime;

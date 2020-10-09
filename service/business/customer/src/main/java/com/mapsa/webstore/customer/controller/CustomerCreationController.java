@@ -17,18 +17,18 @@ import java.util.Optional;
 public class CustomerCreationController {
     @Autowired
     private CustomerService customerService;
-    @PostMapping
+    @PostMapping("create")
     public Customer createCustomer (@RequestBody CustomerDto customer){
         return customerService.createCustomer(customer);
     }
 
-    @PostMapping
+    @PostMapping("update")
     public Customer updateCustomer(@RequestBody CustomerUpdateDto customerDto, @RequestBody Long id){
         Optional<Customer> byId = customerService.findById(id);
         return customerService.update(customerDto,byId);
     }
 
-    @PostMapping
+    @PostMapping("delete")
     public void deleteCustomer(@RequestBody CustomerDto customerDto, @RequestBody Long id){
         Optional<Customer> byId = customerService.findById(id);
         customerService.delete(byId);

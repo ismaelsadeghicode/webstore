@@ -13,7 +13,7 @@ import java.time.ZonedDateTime;
 public class CustomerUpdateDto {
     @NotBlank(message = "code is needed")
     private Long code;
-    private Location locationId;
+    //private Location locationId;
     private String type;
     @NotBlank(message = "national code is needed")
     private Long nationalCode;
