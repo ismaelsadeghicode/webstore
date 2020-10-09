@@ -1,22 +1,21 @@
 package com.mapsa.webstore.product.domain;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+
 @Data
-@NoArgsConstructor
-@Accessors(chain = true)
 @Entity
-@Table(name = "group_tbl")
-public class Group implements Serializable {
-    @Id
+@Table(name = "cart")
+@Accessors(chain = true)
+public class Factor  implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     private Long id;
-    private String name;
-    private String description;
-    private Long category;
+    @OneToOne
+    Order order;
+    private  Long total;
 }
