@@ -16,9 +16,9 @@ create table factor(
                        id              number(19)      not null,
                        total         number(20),
 
-                       order_id      number(19),
+                       order_tbl_id      number(19),
                        constraint      factor_pk_id     primary key (id),
-                       constraint factor_fk_order_id foreign key (order_id) references order_tbl(id)
+                       constraint factor_fk_order_id foreign key (order_tbl_id) references order_tbl(id)
 );
 
 create sequence factor_seq
