@@ -25,12 +25,6 @@ public class Province {
     @Column(name = "CODE")
     private String code;
     @Basic
-    @Column(name = "ALPHABET2_CODE")
-    private String alphabet2Code;
-    @Basic
-    @Column(name = "ALPHABET3_CODE")
-    private String alphabet3Code;
-    @Basic
     @Column(name = "REMARKS")
     private String remarks;
     @Basic

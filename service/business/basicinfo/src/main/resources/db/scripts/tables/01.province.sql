@@ -17,8 +17,6 @@ create table province
     country_id     number(19)   not null,
     name           varchar(100) ,
     code           varchar(100)  ,
-    alphabet2_code varchar(100)  ,
-    alphabet3_code varchar(100)  ,
     remarks        varchar(100)  ,
     lock_version   number(19)   ,
     constraint province_pk_id primary key (id),
