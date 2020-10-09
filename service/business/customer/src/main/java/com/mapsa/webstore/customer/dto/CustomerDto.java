@@ -5,8 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotBlank;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 
 @Data
 @Accessors(chain = true)
