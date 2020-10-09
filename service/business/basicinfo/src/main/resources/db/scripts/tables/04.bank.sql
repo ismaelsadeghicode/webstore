@@ -15,8 +15,8 @@ create table bank
 (
     id           number(19) not null,
     user_id      number(19) not null,
-    card_no      number(19) not null,
-    lock_version number(19) not null,
+    card_no      number(19)  ,
+    lock_version number(19)  ,
     constraint bank_pk_id primary key (id)
 );
 create sequence bank_seq

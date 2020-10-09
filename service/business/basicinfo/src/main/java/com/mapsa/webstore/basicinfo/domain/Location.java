@@ -17,10 +17,7 @@ public class Location {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "location_seq")
-    private Long id;
-    @Basic
-    @Column(name = "CITY_ID")
-    private Long cityId;
+    private long id;
     @Basic
     @Column(name = "TITLE")
     private String title;
@@ -39,6 +36,8 @@ public class Location {
     @Basic
     @Column(name = "LOCK_VERSION")
     private Long lockVersion;
-
+    @ManyToOne
+    @JoinColumn(name = "CITY_ID", referencedColumnName = "ID", nullable = false)
+    private City cityByCityId;
 
 }

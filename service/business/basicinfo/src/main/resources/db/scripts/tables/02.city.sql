@@ -15,10 +15,10 @@ create table city
 (
     id           number(19)   not null,
     province_id  number(19)   not null,
-    name         varchar(100) not null,
-    code         varchar(100) not null,
-    remarks      varchar(100) not null,
-    lock_version number(19)   not null,
+    name         varchar(100) ,
+    code         varchar(100) ,
+    remarks      varchar(100) ,
+    lock_version number(19)   ,
     constraint pcity_pk_id primary key (id),
     constraint city_fk_province_id foreign key (province_id) references province (id)
 );

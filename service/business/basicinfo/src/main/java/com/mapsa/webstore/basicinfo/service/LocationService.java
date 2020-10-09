@@ -1,7 +1,6 @@
 package com.mapsa.webstore.basicinfo.service;
 
 import com.mapsa.webstore.basicinfo.domain.Location;
-
 import com.mapsa.webstore.basicinfo.repository.LocationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +44,8 @@ public class LocationService {
     }
 
     private Location checkNull(Location locationOne, Location locationTwo) {
-        if (locationOne.getCityId() != null) {
-            locationTwo.setCityId(locationOne.getCityId());
+        if (locationOne.getCityByCityId() != null) {
+            locationTwo.setCityByCityId(locationOne.getCityByCityId());
         }
         if (locationOne.getLatitude() != null) {
             locationTwo.setLatitude(locationOne.getLatitude());

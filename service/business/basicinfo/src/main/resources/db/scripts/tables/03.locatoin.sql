@@ -15,12 +15,12 @@ create table location
 (
     id           number(19)   not null,
     city_id      number(19)   not null,
-    title        varchar(100) not null,
-    address      varchar(100) not null,
-    latitude     varchar(100) not null,
-    longitude    varchar(100) not null,
-    remarks      varchar(100) not null,
-    lock_version number(19)   not null,
+    title        varchar(100) ,
+    address      varchar(100) ,
+    latitude     varchar(100) ,
+    longitude    varchar(100) ,
+    remarks      varchar(100) ,
+    lock_version number(19)   ,
     constraint location_pk_id primary key (id),
     constraint location_fk_account_id foreign key (city_id) references city (id)
 );

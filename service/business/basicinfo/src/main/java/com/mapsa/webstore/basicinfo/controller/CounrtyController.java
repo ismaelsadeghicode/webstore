@@ -1,8 +1,6 @@
 package com.mapsa.webstore.basicinfo.controller;
 
-import com.mapsa.webstore.basicinfo.domain.City;
 import com.mapsa.webstore.basicinfo.domain.Country;
-import com.mapsa.webstore.basicinfo.service.CityService;
 import com.mapsa.webstore.basicinfo.service.CountryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -15,9 +15,9 @@ create table history_transaction
 (
     id          number(19) not null,
     bank_id     number(19) not null,
-    wallet_id   number(19) not null,
-    create_time timestamp  not null,
-    is_done     varchar(1) not null,
+    wallet_id   number(19)  ,
+    create_time timestamp   ,
+    is_done     varchar(1)  ,
     constraint history_transaction_pk_id primary key (id),
     constraint history_transaction_fk_bank_id foreign key (bank_id) references bank (id),
     constraint history_t_fk_wallet_id foreign key (wallet_id) references wallet (id),

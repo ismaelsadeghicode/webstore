@@ -17,10 +17,7 @@ public class Province {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "province_seq")
-    private Long id;
-    @Basic
-    @Column(name = "COUNTRY_ID")
-    private Long countryId;
+    private long id;
     @Basic
     @Column(name = "NAME")
     private String name;
@@ -38,6 +35,9 @@ public class Province {
     private String remarks;
     @Basic
     @Column(name = "LOCK_VERSION")
-    private long lockVersion;
+    private Long lockVersion;
+    @ManyToOne
+    @JoinColumn(name = "COUNTRY_ID", referencedColumnName = "ID", nullable = false)
+    private Country countryByCountryId;
 
 }

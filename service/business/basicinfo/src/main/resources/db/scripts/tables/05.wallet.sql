@@ -15,11 +15,11 @@ create table wallet
 (
     id           number(19)   not null,
     bank_id      number(19)   not null,
-    name         varchar(100) not null,
-    amount       number(19)   not null,
-    inn          varchar(100) not null,
-    remarks      varchar(100) not null,
-    lock_version number(19)   not null,
+    name         varchar(100)  ,
+    amount       number(19)    ,
+    inn          varchar(100)  ,
+    remarks      varchar(100)  ,
+    lock_version number(19)    ,
     constraint wallet_pk_id primary key (id),
     constraint wallet_fk_bank_id foreign key (bank_id) references bank (id)
 );

@@ -50,8 +50,8 @@ public class CityService {
         if (cityOne.getName() != null) {
             cityTwo.setName(cityOne.getName());
         }
-        if (cityOne.getProvinceId() != null) {
-            cityTwo.setProvinceId(cityOne.getProvinceId());
+        if (cityOne.getProvinceByProvinceId() != null) {
+            cityTwo.setProvinceByProvinceId(cityOne.getProvinceByProvinceId());
         }
         if (cityOne.getRemarks() != null) {
             cityTwo.setRemarks(cityOne.getRemarks());

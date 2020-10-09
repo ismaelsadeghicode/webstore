@@ -36,16 +36,5 @@ public class CountryService {
         coutryRepository.delete(country);
     }
 
-//    public void patch(Country country) {
-//        Country country1 = coutryRepository.findById(country.getId()).orElse(new Country());
-//        checkNull(country, country1);
-//        coutryRepository.save(country1);
-//    }
 
-
-
-//    private Location checkNull(Country countryOne, Country countryTwo) {
-//
-//        return countryTwo;
-//    }
 }
