@@ -1,10 +1,12 @@
 package com.mapsa.webstore.basicinfo.domain;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
 @Entity
+@Accessors(chain = true)
 @Data
 @SequenceGenerator(
         name = "country_seq",

@@ -1,11 +1,13 @@
 package com.mapsa.webstore.basicinfo.domain;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@Accessors(chain = true)
 @SequenceGenerator(
         name = "location_seq",
         sequenceName = "LOCATION_SEQ",
@@ -36,7 +38,7 @@ public class Location {
     private String remarks;
     @Basic
     @Column(name = "LOCK_VERSION")
-    private long lockVersion;
+    private Long lockVersion;
 
 
 }
