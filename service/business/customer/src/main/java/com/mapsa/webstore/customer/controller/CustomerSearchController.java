@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("search")
-public class CustomerSearch {
+public class CustomerSearchController {
     @Autowired
     private CustomerService customerService;
 
