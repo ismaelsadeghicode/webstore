@@ -13,7 +13,7 @@ exception
 end
 /
 create table category(
-    id              number(10)      not null,
+    id              number(19)      not null,
     title          varchar(255),
     discription     varchar(255),
     constraint      category_pk_id     primary key (id)
