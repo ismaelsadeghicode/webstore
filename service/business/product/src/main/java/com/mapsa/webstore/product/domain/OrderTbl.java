@@ -1,13 +1,12 @@
-package com.mapsa.webstore.product.domain2;
+package com.mapsa.webstore.product.domain;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "CART_ITEM", schema = "STORE", catalog = "")
-public class CartItem {
+@Table(name = "ORDER_TBL")
+public class OrderTbl {
     private long id;
-    private Product productByProductId;
     private Cart cartByCartId;
 
     @Id
@@ -24,23 +23,13 @@ public class CartItem {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CartItem cartItem = (CartItem) o;
-        return id == cartItem.id;
+        OrderTbl orderTbl = (OrderTbl) o;
+        return id == orderTbl.id;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID", nullable = false)
-    public Product getProductByProductId() {
-        return productByProductId;
-    }
-
-    public void setProductByProductId(Product productByProductId) {
-        this.productByProductId = productByProductId;
     }
 
     @ManyToOne

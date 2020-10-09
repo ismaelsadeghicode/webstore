@@ -1,10 +1,10 @@
-package com.mapsa.webstore.product.domain2;
+package com.mapsa.webstore.product.domain;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "GROUP_TBL", schema = "STORE", catalog = "")
+@Table(name = "GROUP_TBL")
 public class GroupTbl {
     private long id;
     private String name;

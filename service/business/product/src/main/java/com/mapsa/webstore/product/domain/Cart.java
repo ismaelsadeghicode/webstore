@@ -1,20 +1,47 @@
 package com.mapsa.webstore.product.domain;
 
-import lombok.Data;
-import lombok.experimental.Accessors;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
 
-import javax.persistence.*;
-import java.io.Serializable;
-
-@Data
 @Entity
-@Table(name = "cart")
-@Accessors(chain = true)
-public class Cart implements Serializable {
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class Cart {
+    private long id;
+    private long total;
+
     @Id
-    private Long id;
-    private Long total;
+    @Column(name = "ID")
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
+    @Basic
+    @Column(name = "TOTAL")
+    public long getTotal() {
+        return total;
+    }
+
+    public void setTotal(long total) {
+        this.total = total;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cart cart = (Cart) o;
+        return id == cart.id &&
+                total == cart.total;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, total);
+    }
 }

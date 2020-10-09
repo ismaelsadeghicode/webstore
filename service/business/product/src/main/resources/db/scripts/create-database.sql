@@ -1,2 +1,2 @@
-CREATE USER store identified by store;
-GRANT CONNECT , RESOURCE , DBA TO store;
+CREATE USER storem identified by storem;
+GRANT CONNECT , RESOURCE , DBA TO storem;
