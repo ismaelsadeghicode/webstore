@@ -24,4 +24,5 @@ public class RealCustomer {
     private Date birthDate;
     private String emailAddress;
     private String phoneNumber;
+    private String status;
 }

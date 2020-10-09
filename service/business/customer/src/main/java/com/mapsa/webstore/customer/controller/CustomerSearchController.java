@@ -32,7 +32,7 @@ public class CustomerSearchController {
     }
 
     @GetMapping("by/nationalcode/{nationalcode}")
-    public Customer findByNationalCode(@PathVariable Long nationalCode){
-        return customerService.findByNationalCodeContaining(nationalCode);
+    public Customer findByNationalCode(@PathVariable Long nationalcode){
+        return customerService.findByNationalCodeContaining(nationalcode);
     }
 }

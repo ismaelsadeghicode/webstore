@@ -1,7 +1,10 @@
 package com.mapsa.webstore.customer.service;
 
+import com.mapsa.webstore.customer.domain.Customer;
+import com.mapsa.webstore.customer.domain.LegalCustomer;
 import com.mapsa.webstore.customer.domain.RealCustomer;
 import com.mapsa.webstore.customer.dto.RealCustomerDto;
+import com.mapsa.webstore.customer.dto.RealCustomerUpdateDto;
 import com.mapsa.webstore.customer.repository.RealCustomerRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +56,24 @@ public class RealCustomerService {
 
     public RealCustomer findByPhoneNumber(String phoneNumber){
         return realCustomerRepository.findByPhoneNumberContaining(phoneNumber);
+    }
+
+    public RealCustomer update(RealCustomerUpdateDto realCustomerDto, Optional<RealCustomer> byId1) {
+        RealCustomer byId = mp.map(byId1, RealCustomer.class);
+        if (!byId.getStatus().equals("DELETED")){
+            byId.setBirthDate(realCustomerDto.getBirthDate());
+            byId.setEmailAddress(realCustomerDto.getEmailAddress());
+            byId.setFirstname(realCustomerDto.getFirstname());
+            byId.setLastname(realCustomerDto.getLastname());
+            byId.setGender(realCustomerDto.getGender());
+            byId.setPhoneNumber(realCustomerDto.getPhoneNumber());
+            return realCustomerRepository.save(byId);}
+        else return new RealCustomer();
+    }
+
+    public void delete(Optional<RealCustomer> customer) {
+        RealCustomer byId = mp.map(customer, RealCustomer.class);
+        byId.setStatus("DELETED");
+        realCustomerRepository.save(byId);
     }
 }

@@ -10,7 +10,7 @@ import java.time.ZonedDateTime;
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
-public class CustomerDto {
+public class CustomerUpdateDto {
     @NotBlank(message = "code is needed")
     private Long code;
     private Location locationId;

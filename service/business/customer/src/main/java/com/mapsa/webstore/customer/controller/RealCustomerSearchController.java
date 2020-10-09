@@ -23,13 +23,13 @@ public class RealCustomerSearchController {
         return realCustomerService.findById(id);
     }
 
-    @GetMapping("by/gender/{Gender}")
+    @GetMapping("by/gender/{gender}")
     public List<RealCustomer> findByGender(@PathVariable String gender){
         return realCustomerService.findByGender(gender);
     }
     @GetMapping("by/phonenumber/{phonenumber}")
-    public RealCustomer findByPhoneNumber(@PathVariable String phoneNumber){
-        return realCustomerService.findByPhoneNumber(phoneNumber);
+    public RealCustomer findByPhoneNumber(@PathVariable String phonenumber){
+        return realCustomerService.findByPhoneNumber(phonenumber);
     }
     @GetMapping("by/email/{email}")
     public RealCustomer findByEmail (@PathVariable String email){

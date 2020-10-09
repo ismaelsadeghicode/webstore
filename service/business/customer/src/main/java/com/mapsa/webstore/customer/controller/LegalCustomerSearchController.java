@@ -27,8 +27,8 @@ public class LegalCustomerSearchController {
         return legalCustomerService.findByEconomicCodeContaining(economiccode);
     }
     @GetMapping("by/phonenumber/{phonenumber}")
-    public LegalCustomer findByPhoneNumber(@PathVariable String phoneNumber){
-        return legalCustomerService.findByPhoneNumberContaining(phoneNumber);
+    public LegalCustomer findByPhoneNumber(@PathVariable String phonenumber){
+        return legalCustomerService.findByPhoneNumberContaining(phonenumber);
     }
     @GetMapping("by/email/{email}")
     public LegalCustomer findByEmail (@PathVariable String email){
