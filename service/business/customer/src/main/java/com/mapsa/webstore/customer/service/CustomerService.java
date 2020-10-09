@@ -14,6 +14,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,12 +32,18 @@ public class CustomerService {
     private ModelMapper mp = new ModelMapper();
     public RealCustomer createRealCustomer(CustomerDto customerDto, RealCustomerDto realCustomerDto){
         Customer customer = mp.map(customerDto, Customer.class);
+        ZonedDateTime zonedDateTime = ZonedDateTime.now();
+        ZoneId localtime = zonedDateTime.getZone();
+        customer.setZoneTime(localtime);
         RealCustomer realCustomer = mp.map(realCustomerDto,RealCustomer.class);
         realCustomer.setCustomer(customer);
         return realCustomerRepository.save(realCustomer);
     }
     public LegalCustomer createLegalCustomer(CustomerDto customerDto, LegalCustomerDto legalCustomerDto){
         Customer customer = mp.map(customerDto, Customer.class);
+        ZonedDateTime zonedDateTime = ZonedDateTime.now();
+        ZoneId localtime = zonedDateTime.getZone();
+        customer.setZoneTime(localtime);
         LegalCustomer legalCustomer = mp.map(legalCustomerDto,LegalCustomer.class);
         legalCustomer.setCustomer(customer);
         return legalCustomerRepository.save(legalCustomer);
@@ -56,7 +64,7 @@ public class CustomerService {
     public Customer update(CustomerUpdateDto customerDto, Optional<Customer> byId1) {
         Customer byId = mp.map(byId1, Customer.class);
         if (!byId.getRemark().equals("DELETED")){
-        byId.setInsertLocalTime(customerDto.getInsertLocalTime());
+        byId.setZoneTime(customerDto.getZoneTime());
         byId.setCode(customerDto.getCode());
         byId.setNationalCode(customerDto.getNationalCode());
         byId.setType(customerDto.getType());

@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotBlank;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 @Data
@@ -17,5 +18,4 @@ public class CustomerDto {
     private String type;
     @NotBlank(message = "national code is needed")
     private Long nationalCode;
-    private ZonedDateTime insertLocalTime;
 }

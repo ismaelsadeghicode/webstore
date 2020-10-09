@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 @Entity
@@ -25,7 +26,7 @@ public class Customer {
     private RealCustomer realCustomer;
     private String type;
     private Long nationalCode;
-    private ZonedDateTime insertLocalTime;
+    private ZoneId zoneTime;
     private String remark;
     private Long lockVersion;
 }
