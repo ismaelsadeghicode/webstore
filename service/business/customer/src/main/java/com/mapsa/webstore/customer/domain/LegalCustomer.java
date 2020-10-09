@@ -22,5 +22,5 @@ public class LegalCustomer {
     private String emailAddress;
     private String website;
     private String phoneNumber;
-    private String status;
+    private String status = "ACTIVE";
 }

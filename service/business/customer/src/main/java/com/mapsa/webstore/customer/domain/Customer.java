@@ -27,6 +27,6 @@ public class Customer {
     private String type;
     private Long nationalCode;
     private ZoneId zoneTime;
-    private String remark;
+    private String remark = "ACTIVE";
     private Long lockVersion;
 }
