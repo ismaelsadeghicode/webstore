@@ -1,9 +1,26 @@
+begin
+    execute immediate 'drop table category';
+    dbms_output.put_line('Table category dropped');
+exception
+    when others then dbms_output.put_line('Table category id not exist');
+end;
+/
+begin
+    execute immediate 'drop sequence category';
+    dbms_output.put_line('Sequence category dropped')
+exception
+    when others then dbms_output.put_line('Sequence category id not exist');
+end
+/
+create table category(
+    id              number(10)      not null,
+    title          varchar(255),
+    discription     varchar(255),
+    constraint      category_pk_id     primary key (id)
+)
 
-aaaacccccccccmilad
+create sequence category_seq
+    minvalue 1 maxvalue 999999999999999999 cycle
+    start with 1 increment by 1 cache 100;
 
-
-dddd
-
-ggggg
-
-mahdiyeh
+/
