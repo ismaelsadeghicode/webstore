@@ -1,27 +1,27 @@
 package com.mapsa.webstore.customer.domain;
 
-import com.mapsa.webstore.customer.dto.Location;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-import java.time.ZonedDateTime;
+import java.util.Date;
 
 @Entity
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
-public class Customer {
+public class RealCustomer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long code;
     @OneToOne(cascade = CascadeType.ALL)
-    private Location locationId;
-    private String type;
-    private Long nationalCode;
-    private ZonedDateTime insertLocalTime;
-    private String remark;
-    private Long lockVersion;
+    private Customer customer;
+    // 0 for female   1 for male
+    private Boolean gender;
+    private String firstname;
+    private String lastname;
+    private Date birthDate;
+    private String emailAddress;
+    private String phoneNumber;
 }

@@ -1,25 +1,21 @@
-package com.mapsa.webstore.customer.domain;
+package com.mapsa.webstore.customer.dto;
 
-import com.mapsa.webstore.customer.dto.Location;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.ZonedDateTime;
 
-@Entity
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
-public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class CustomerDto {
+    @NotBlank(message = "code is needed")
     private Long code;
-    @OneToOne(cascade = CascadeType.ALL)
     private Location locationId;
     private String type;
+    @NotBlank(message = "national code is needed")
     private Long nationalCode;
     private ZonedDateTime insertLocalTime;
     private String remark;
