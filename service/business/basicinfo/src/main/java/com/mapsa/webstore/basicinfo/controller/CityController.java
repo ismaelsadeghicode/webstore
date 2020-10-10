@@ -33,25 +33,25 @@ public class CityController {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void create(City city) {
+    public void create(@RequestBody City city) {
         cityService.create(city);
     }
 
     @DeleteMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void delete(City city) {
+    public void delete(@RequestBody City city) {
         cityService.delete(city);
     }
 
     @PutMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void updateOrSave(City city) {
+    public void updateOrSave(@RequestBody City city) {
         cityService.update(city);
     }
 
     @PatchMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void patch(City city) {
+    public void patch(@RequestBody City city) {
         cityService.patch(city);
     }
 

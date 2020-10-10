@@ -33,19 +33,19 @@ public class CounrtyController {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void create(Country country) {
+    public void create(@RequestBody Country country) {
         countryService.create(country);
     }
 
     @DeleteMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void delete(Country country) {
+    public void delete(@RequestBody Country country) {
         countryService.delete(country);
     }
 
     @PutMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void updateOrSave(Country country) {
+    public void updateOrSave(@RequestBody Country country) {
         countryService.update(country);
     }
 

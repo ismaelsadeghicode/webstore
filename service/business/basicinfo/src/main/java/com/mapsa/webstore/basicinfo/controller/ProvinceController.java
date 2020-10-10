@@ -34,19 +34,19 @@ public class ProvinceController {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void create(Province province) {
+    public void create(@RequestBody Province province) {
         provinceService.create(province);
     }
 
     @DeleteMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void delete(Province province) {
+    public void delete(@RequestBody Province province) {
         provinceService.delete(province);
     }
 
     @PutMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void updateOrSave(Province province) {
+    public void updateOrSave(@RequestBody Province province) {
         provinceService.update(province);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)

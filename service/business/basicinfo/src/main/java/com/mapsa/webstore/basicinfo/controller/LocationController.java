@@ -33,25 +33,25 @@ public class LocationController {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void create(Location location) {
+    public void create(@RequestBody Location location) {
         locationService.create(location);
     }
 
     @DeleteMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void delete(Location location) {
+    public void delete(@RequestBody Location location) {
         locationService.delete(location);
     }
 
     @PutMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void updateOrSave(Location location) {
+    public void updateOrSave(@RequestBody Location location) {
         locationService.update(location);
     }
 
     @PatchMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void patch(Location location) {
+    public void patch(@RequestBody Location location) {
         locationService.patch(location);
     }
 
