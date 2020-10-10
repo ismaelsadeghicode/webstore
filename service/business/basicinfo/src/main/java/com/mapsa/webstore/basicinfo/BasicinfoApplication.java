@@ -31,9 +31,8 @@ public class BasicinfoApplication implements CommandLineRunner {
         try{
         CsvParser<CountryDto> parser =  new CsvParser();
        List<Country> countries =parser.Csv("C:/countries_codes_and_coordinates.csv");
-        for (Country country:countries) {
-            countryRepository.save(country);
-        }}catch (Exception ex){
+            countryRepository.saveAll(countries);
+        }catch (Exception ex){
             System.out.println("not find");
         }
     }
