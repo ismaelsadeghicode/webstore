@@ -15,13 +15,13 @@ public class CsvParser<T> {
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
-        List<Country> countrys = new ArrayList<>();
+        List<Country> countries = new ArrayList<>();
         try {
             br = new BufferedReader(new FileReader(csvFile));
             while ((line = br.readLine()) != null) {
                 // use comma as separator
                 String[] country = line.split(cvsSplitBy);
-                countrys.add(new
+                countries.add(new
                         Country().setName(country[0]).setAlphabet2Code(country[1]).setAlphabet3Code(country[2]).setNumericCode(country[3]));
             }
 
@@ -38,7 +38,7 @@ public class CsvParser<T> {
                 }
             }
         }
-        return countrys;
+        return countries;
     }
 }
 
