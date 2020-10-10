@@ -51,7 +51,7 @@ public class LocationController {
 
     @PatchMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void patch(@RequestBody Location location) {
+    public void patch(@RequestBody Location location) throws Exception {
         locationService.patch(location);
     }
 
@@ -73,7 +73,7 @@ public class LocationController {
     {
         return ResponseEntity
                 .ok()
-                .allow(HttpMethod.GET,HttpMethod.POST, HttpMethod.DELETE, HttpMethod.PUT, HttpMethod.OPTIONS)
+                .allow(HttpMethod.GET,HttpMethod.POST, HttpMethod.DELETE, HttpMethod.PUT,HttpMethod.PATCH, HttpMethod.OPTIONS)
                 .build();
     }
 

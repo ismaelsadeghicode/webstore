@@ -29,8 +29,8 @@ public class LocationService {
         }
     }
 
-    public void patch(Location location) {
-        Location location1 = locationRepository.findById(location.getId()).orElse(new Location());
+    public void patch(Location location) throws Exception {
+        Location location1 = locationRepository.findById(location.getId()).orElseThrow(()->new Exception("not find"));
         checkNull(location, location1);
         locationRepository.save(location1);
     }

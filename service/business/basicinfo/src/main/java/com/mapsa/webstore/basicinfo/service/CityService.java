@@ -29,8 +29,8 @@ public class CityService {
         }
     }
 
-    public void patch(City city) {
-        City city1 = cityRepository.findById(city.getId()).orElse(new City());
+    public void patch(City city) throws Exception {
+        City city1 = cityRepository.findById(city.getId()).orElseThrow(()->new Exception("not find"));
         checkNull(city, city1);
         cityRepository.save(city1);
     }

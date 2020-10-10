@@ -51,7 +51,7 @@ public class CityController {
 
     @PatchMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public void patch(@RequestBody City city) {
+    public void patch(@RequestBody City city) throws Exception {
         cityService.patch(city);
     }
 
@@ -73,7 +73,7 @@ public class CityController {
     {
         return ResponseEntity
                 .ok()
-                .allow(HttpMethod.GET,HttpMethod.POST, HttpMethod.DELETE, HttpMethod.PUT, HttpMethod.OPTIONS)
+                .allow(HttpMethod.GET,HttpMethod.POST, HttpMethod.DELETE, HttpMethod.PUT, HttpMethod.PATCH, HttpMethod.OPTIONS)
                 .build();
     }
 
