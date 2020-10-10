@@ -11,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @SpringBootApplication
 //@EnableDiscoveryClient
@@ -27,10 +28,13 @@ public class BasicinfoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        try{
         CsvParser<CountryDto> parser =  new CsvParser();
        List<Country> countries =parser.Csv("C:/countries_codes_and_coordinates.csv");
         for (Country country:countries) {
             countryRepository.save(country);
+        }}catch (Exception ex){
+            System.out.println("not find");
         }
     }
 }
