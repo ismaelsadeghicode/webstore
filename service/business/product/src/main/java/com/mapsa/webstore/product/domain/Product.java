@@ -1,12 +1,26 @@
 package com.mapsa.webstore.product.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
+@Data
+@Accessors(chain = true)
 @Entity
+@Table(name = "PRODUCT")
+@Component
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     @Id
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Basic
     @Column(name = "NAME")
@@ -21,6 +35,8 @@ public class Product {
     @Column(name = "STOCK")
     private Long stock;
     @ManyToOne
-    @JoinColumn(name = "GROUP_ID", referencedColumnName = "ID")
-    private GroupTbl groupTblByGroupId;
+       private GroupTbl groupTbl ;
+    @ManyToMany
+    //@JoinColumn(nullable = true)
+    private List<Cart> carts;
 }
