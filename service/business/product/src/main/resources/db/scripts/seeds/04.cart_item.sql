@@ -1,0 +1,1 @@
+insert into CART_ITEM  (ID , CART_ID , PRODUCT_ID  ) values ( , )

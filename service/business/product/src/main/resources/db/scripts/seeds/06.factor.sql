@@ -1,0 +1,1 @@
+insert into FACTOR  (ID , TOTAL   , ORDER_TBL_ID  ) values ( , )
