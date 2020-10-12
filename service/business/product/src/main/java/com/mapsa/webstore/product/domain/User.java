@@ -1,7 +1,9 @@
 package com.mapsa.webstore.product.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.experimental.Accessors;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,8 @@ import java.util.List;
 @Component
 @AllArgsConstructor
 @NoArgsConstructor
+
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,8 +25,10 @@ public class User {
     private String username;
     private  String password;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    @ElementCollection
+    private List<Role> roles;
     @OneToMany
+
     private List<OrderTbl> orderTbl;
 
     }

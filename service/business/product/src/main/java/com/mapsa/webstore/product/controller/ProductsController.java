@@ -19,9 +19,12 @@ import java.util.List;
 @RequestMapping("product")
 public class ProductsController  {
    private final ProductsService productsService;
+    int i=0;
     @GetMapping
     @Timed(value = "productsMetric",histogram = true,extraTags = {"version","1.0"},percentiles = {0.95, 0.99})
     public ResponseEntity<List<Product>> products(){
+
+        System.out.println(i++);
         return ResponseEntity.ok(productsService.findAll());
     }
     @GetMapping("/{id}")
@@ -30,6 +33,7 @@ public class ProductsController  {
     }
     @GetMapping("sout")
     private String sout(){
+        System.out.println(i++);
         return "ok";
     }
 }
