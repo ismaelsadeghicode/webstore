@@ -2,6 +2,7 @@ package com.mapsa.webstore.basicinfo.controller;
 
 import com.mapsa.webstore.basicinfo.domain.Province;
 import com.mapsa.webstore.basicinfo.service.ProvinceService;
+import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -23,33 +24,39 @@ public class ProvinceController {
     private final ProvinceService provinceService;
 
     @GetMapping
+    @Timed(value = "basicinfo.Province",histogram = true,extraTags = {"version","1.0"},percentiles = {0.95,0.99},description = "This.is.test.Province.get")
     public ResponseEntity<List<Province>> showAllLocation() {
         return ResponseEntity.ok(provinceService.showAllProvince());
     }
 
     @GetMapping("/{id}")
+    @Timed(value = "basicinfo.Province",histogram = true,extraTags = {"version","1.0"},percentiles = {0.95,0.99},description = "This.is.test.Province.get")
     public ResponseEntity<Province> showById(@PathVariable Long id) throws Exception {
         return ResponseEntity.ok(provinceService.showAllProvince(id));
     }
 
     @PostMapping
+    @Timed(value = "basicinfo.Province",histogram = true,extraTags = {"version","1.0"},percentiles = {0.95,0.99},description = "This.is.test.Province.post")
     @ResponseStatus(code = HttpStatus.CREATED)
     public void create(@RequestBody Province province) {
         provinceService.create(province);
     }
 
     @DeleteMapping
+    @Timed(value = "basicinfo.Province",histogram = true,extraTags = {"version","1.0"},percentiles = {0.95,0.99},description = "This.is.test.Province.delete")
     @ResponseStatus(code = HttpStatus.OK)
     public void delete(@RequestBody Province province) {
         provinceService.delete(province);
     }
 
     @PutMapping
+    @Timed(value = "basicinfo.Province",histogram = true,extraTags = {"version","1.0"},percentiles = {0.95,0.99},description = "This.is.test.Province.put")
     @ResponseStatus(code = HttpStatus.OK)
     public void updateOrSave(@RequestBody Province province) {
         provinceService.update(province);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @Timed(value = "basicinfo.Province",histogram = true,extraTags = {"version","1.0"},percentiles = {0.95,0.99},description = "This.is.test.Province.exception")
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(
             MethodArgumentNotValidException ex) {
@@ -63,6 +70,7 @@ public class ProvinceController {
     }
 
     @RequestMapping(method = RequestMethod.OPTIONS)
+    @Timed(value = "basicinfo.Province",histogram = true,extraTags = {"version","1.0"},percentiles = {0.95,0.99},description = "This.is.test.Province.options")
     public ResponseEntity<?> options()
     {
         return ResponseEntity
@@ -72,6 +80,7 @@ public class ProvinceController {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @Timed(value = "basicinfo.Province",histogram = true,extraTags = {"version","1.0"},percentiles = {0.95,0.99},description = "This.is.test.Province.bad_request")
     @ExceptionHandler(Exception.class)
     public String Exceptions(
             Exception ex) {
