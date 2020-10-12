@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 @SpringBootApplication
 //@EnableDiscoveryClient
@@ -21,7 +21,6 @@ public class BasicinfoApplication implements CommandLineRunner {
     private final CountryRepository countryRepository;
     public static void main(String[] args)  {
         SpringApplication.run(BasicinfoApplication.class, args);
-
 
 
     }
