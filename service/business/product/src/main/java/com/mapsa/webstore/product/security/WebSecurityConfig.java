@@ -1,10 +1,12 @@
 package com.mapsa.webstore.product.security;
 
+import com.mapsa.webstore.product.domain.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -18,9 +20,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
-    private final JwtAuthFilter jwtAuthFilter;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
             auth.userDetailsService(userDetailsService)
@@ -31,21 +34,30 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/product/**","/auth/**").permitAll()
-                .anyRequest().authenticated().and()
-               .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                  .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-    }
+                .antMatchers("/product","/product/**")
+                .authenticated()
+                .anyRequest().permitAll()
+                .and()
+                .formLogin()
+               .loginPage("/login")
+                .permitAll()
+                .defaultSuccessUrl("/product")
+               // .successForwardUrl("/product")
+        .and().logout().logoutUrl("/auth/logout")
+                .logoutSuccessUrl("/").invalidateHttpSession(true).clearAuthentication(true);
+      // .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
+    }/*
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
-    }
+    }*/
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.debug(true)
-                .ignoring().anyRequest();
+        web.debug(false)
+                .ignoring().antMatchers(
+                 "/h2/**","/","/swagger-ui.html");
     }
 
     @Bean

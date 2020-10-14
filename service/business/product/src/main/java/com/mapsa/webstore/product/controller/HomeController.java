@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
     @GetMapping
     public String homePage(Model model){
-        LoginRequestDto loginRequestDto=new LoginRequestDto();
-        model.addAttribute("loginRequestDto",loginRequestDto);
+        /*LoginRequestDto loginRequestDto=new LoginRequestDto();
+        model.addAttribute("loginRequestDto",loginRequestDto);*/
         RegisterRequestDto registerRequestDto=new RegisterRequestDto();
         model.addAttribute("registerRequestDto",registerRequestDto);
-        return "login-register";
+        return "register";
     }
 }

@@ -24,7 +24,7 @@ public class OrderTbl {
 
     @OneToOne
     private Cart cart;
-    @ManyToOne
+    @ManyToOne(fetch =FetchType.EAGER)
     private User user;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;

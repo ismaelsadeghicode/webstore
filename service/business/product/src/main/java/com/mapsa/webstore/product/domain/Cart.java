@@ -23,9 +23,8 @@ public class Cart {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Basic
-    @Column(name = "TOTAL")
-    private long total;
+
     @ManyToMany
+
     private List<Product> products;
 }

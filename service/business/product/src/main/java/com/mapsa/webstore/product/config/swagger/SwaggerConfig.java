@@ -5,6 +5,7 @@ package com.mapsa.webstore.product.config.swagger;
         import org.springframework.context.annotation.Bean;
         import org.springframework.context.annotation.Configuration;
 
+        import org.springframework.web.servlet.config.annotation.EnableWebMvc;
         import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
         import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
         import springfox.documentation.builders.ApiInfoBuilder;
@@ -18,14 +19,15 @@ package com.mapsa.webstore.product.config.swagger;
 
 @Configuration
 @EnableSwagger2
+@EnableWebMvc
 public class SwaggerConfig extends WebMvcConfigurerAdapter {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.mapsa.webstore.product"))
-                .paths(PathSelectors.regex("/*"))
+                .apis(RequestHandlerSelectors.basePackage("com.mapsa.webstore.product.controller"))
+                //.paths(PathSelectors.regex("/*"))
                 .build();
     }
 

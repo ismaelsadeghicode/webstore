@@ -23,9 +23,9 @@ public class UserService implements UserMapper{
     private final UserRepository userRepository;
 
     private final PasswordEncoder passwordEncoder;
-    private final AuthenticationManager authenticationManager;
-    private final UserDetailsService userDetailsService;
-    private final JwtProvider jwtProvider;
+   // private final AuthenticationManager authenticationManager;
+    private final UserDetailsServiceImpl userDetailsService;
+
     //private final UserMapper userMapper;
     public User save(@Valid RegisterRequestDto user)  {
 
@@ -34,15 +34,17 @@ public class UserService implements UserMapper{
         user1.setPassword(passwordEncoder.encode(user1.getPassword()));
        return userRepository.save(user1);
     }
-    public AuthResponseDto login(LoginRequestDto loginRequestDto){
+   /* public AuthResponseDto login(LoginRequestDto loginRequestDto){
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                     loginRequestDto.getUsername(),loginRequestDto.getPassword()));
         UserDetails userDetails=userDetailsService.loadUserByUsername(loginRequestDto.getUsername());
-        String token=jwtProvider.generateToken(userDetails);
+
         return new AuthResponseDto().setToken(token).setUserName(userDetails.getUsername());
 
-    }
-
+    }*/
+  public  User getCurrentUser(){
+      return userDetailsService.getCurrentUser();
+  }
     @Override
     public User registerDtoToUser(RegisterRequestDto requestDto) {
         List<Role> roles=new ArrayList<>();

@@ -15,22 +15,22 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductsService {
     private final ProductRepository productRepository;
-    private final CartRepository cartRepository;
+
 
 
     public List<Product> findAll(){
         return productRepository.findAll();
     }
 
-    public ResponseEntity<Product> findById(Long id) throws Exception {
-           return ResponseEntity.ok(productRepository.findById(id).orElseThrow(()->new Exception("jfjfjj")));
+    public Product findById(Long id)  {
+
+           Product product= productRepository.findById(id).orElseThrow(()->new IllegalStateException());
+
+           return product;
     }
-    public ResponseEntity<Product> addProductToCart(Long id){
-       Product product=new Product();
 
 
-        return ResponseEntity.ok(product);
-    }
+
 
 }
 

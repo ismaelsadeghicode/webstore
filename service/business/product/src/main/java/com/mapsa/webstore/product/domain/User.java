@@ -25,10 +25,9 @@ public class User {
     private String username;
     private  String password;
     @Enumerated(EnumType.STRING)
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<Role> roles;
     @OneToMany
-
     private List<OrderTbl> orderTbl;
 
     }

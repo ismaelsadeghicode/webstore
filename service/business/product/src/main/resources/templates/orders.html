@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>products</title>
+</head>
+<body>
+<table id="countryList">
+    <thead>
+    <tr>
+        <th th:text="id"> name </th>
+        <th th:text="cartId"> price </th>
+        <th th:text="username"> Category </th>
+        <th th:text="status"> Category </th>
+        <!--<th th:text="buy"> buy </th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.getCart().getId()}"></td>
+        <td th:text="${order.getUser().getUsername()}"></td>
+        <td th:text="${order.status}"></td>
+     <!--   <td >
+            <form action="/product/3" method="get" >
+                <input type="submit" value="buy">
+            </form>
+        </td>-->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

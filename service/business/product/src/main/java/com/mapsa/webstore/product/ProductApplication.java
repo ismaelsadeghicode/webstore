@@ -6,19 +6,24 @@ import com.mapsa.webstore.product.repository.CartRepository;
 import com.mapsa.webstore.product.repository.CategoryRepository;
 import com.mapsa.webstore.product.repository.GroupRepository;
 import com.mapsa.webstore.product.repository.ProductRepository;
+import com.mapsa.webstore.product.security.RegisterRequestDto;
+import com.mapsa.webstore.product.security.UserRepository;
+import com.mapsa.webstore.product.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 @RequiredArgsConstructor
+//@EnableJdbcHttpSession
 public class ProductApplication implements CommandLineRunner {
 
 
      private final CategoryRepository categoryRepository ;
-
+     private final UserService userService;
      private final GroupRepository groupRepository;
      private final ProductRepository productRepository;
 
@@ -104,6 +109,15 @@ public class ProductApplication implements CommandLineRunner {
                 .setPrice(200000l)
                 .setStock(4700000l);
         productRepository.save(producttemp3);
+        RegisterRequestDto registerRequestDto=new RegisterRequestDto().setPassword("22")
+                .setUsername("22")
+                .setRole("a");
+        userService.save(registerRequestDto);
+         registerRequestDto=new RegisterRequestDto().setPassword("11")
+                .setUsername("11")
+                .setRole("a");
+        userService.save(registerRequestDto);
+
 
 
     }

@@ -21,7 +21,7 @@
 -->
 
 <!-- login form -->
-<div>
+<!--<div>
     <form th:action="@{/auth/login}" th:object="${loginRequestDto}" method="post">
         <h2 >Please sign in</h2>
         <label >User Name</label>
@@ -53,6 +53,25 @@
 
         <input type="submit" value="Sign up"/>
     </form>
-</div>
+</div>-->
+<form th:action="@{/login}" method="post">
+    <h2 >Please sign in</h2>
+
+    <label for="username">
+        <input id="username" type="text" name="username"   th:required="required" th:autofocus="autofocus"/>
+    </label>
+    <br/>
+
+
+    <label for="password">
+        <input id="password" type="password" name="password"  th:required="required" />
+    </label>
+    <br/>
+
+    <input type="submit" value="Sign In"/>
+</form>
+
+
+
 </body>
 </html>

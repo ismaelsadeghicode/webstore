@@ -5,9 +5,28 @@
     <meta charset="UTF-8">
     <title>products</title>
 </head>
-<body th:object="${authResponseDto}">
-  <h1>pro</h1>
-
-  <h1 th:utext="*{token}"></h1>
+<body>
+<table id="countryList">
+    <thead>
+    <tr>
+        <th th:text="name"> name </th>
+        <th th:text="price"> price </th>
+        <th th:text="category"> Category </th>
+        <th th:text="buy"> buy </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.getGroupTbl().getCategory().getTitle()}"></td>
+        <td >
+            <form th:action="@{product/{id}(id = ${product.id})}" method="get" >
+                <input type="submit" value="buy">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
