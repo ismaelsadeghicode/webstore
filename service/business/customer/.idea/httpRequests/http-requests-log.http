@@ -1,0 +1,30 @@
+POST http://localhost:51386/creation/customer/create/legalcustomer
+
+<> 2020-10-09T100156.400.json
+
+###
+
+POST http://localhost:51386/creation/customer/create/legalcustomer
+
+<> 2020-10-09T100149.400.json
+
+###
+
+GET http://localhost:51317/search/customer/by/type/{type}
+
+###
+
+GET http://localhost:51317/search/customer/by/id/{id}
+
+###
+
+GET http://localhost:51317/search/customer/by/code/{code}
+
+###
+
+POST http://localhost:51317/creation/customer/create
+
+<> 2020-10-09T074343.400.json
+
+###
+

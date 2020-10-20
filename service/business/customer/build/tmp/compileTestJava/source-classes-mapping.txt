@@ -1,0 +1,2 @@
+com/mapsa/webstore/customer/CustomerApplicationTests.java
+ com.mapsa.webstore.customer.CustomerApplicationTests

@@ -1,0 +1,50 @@
+com/mapsa/webstore/customer/controller/LegalCustomerSearchController.java
+ com.mapsa.webstore.customer.controller.LegalCustomerSearchController
+com/mapsa/webstore/customer/controller/RealCustomerCreationController.java
+ com.mapsa.webstore.customer.controller.RealCustomerCreationController
+com/mapsa/webstore/customer/dto/RealCustomerUpdateDto.java
+ com.mapsa.webstore.customer.dto.RealCustomerUpdateDto
+com/mapsa/webstore/customer/service/RealCustomerService.java
+ com.mapsa.webstore.customer.service.RealCustomerService
+com/mapsa/webstore/customer/dto/CustomerUpdateDto.java
+ com.mapsa.webstore.customer.dto.CustomerUpdateDto
+com/mapsa/webstore/customer/controller/CustomerSearchController.java
+ com.mapsa.webstore.customer.controller.CustomerSearchController
+com/mapsa/webstore/customer/service/LegalCustomerService.java
+ com.mapsa.webstore.customer.service.LegalCustomerService
+com/mapsa/webstore/customer/dto/RealCustomerDto.java
+ com.mapsa.webstore.customer.dto.RealCustomerDto
+com/mapsa/webstore/customer/CustomerApplication.java
+ com.mapsa.webstore.customer.CustomerApplication
+com/mapsa/webstore/customer/controller/LegalCustomerCreationController.java
+ com.mapsa.webstore.customer.controller.LegalCustomerCreationController
+com/mapsa/webstore/customer/repository/CustomerRepository.java
+ com.mapsa.webstore.customer.repository.CustomerRepository
+com/mapsa/webstore/customer/dto/RealCustomerCreationDto.java
+ com.mapsa.webstore.customer.dto.RealCustomerCreationDto
+com/mapsa/webstore/customer/dto/LegalCustomerUpdateDto.java
+ com.mapsa.webstore.customer.dto.LegalCustomerUpdateDto
+com/mapsa/webstore/customer/domain/Customer.java
+ com.mapsa.webstore.customer.domain.Customer
+com/mapsa/webstore/customer/dto/LegalCustomerCreationDto.java
+ com.mapsa.webstore.customer.dto.LegalCustomerCreationDto
+com/mapsa/webstore/customer/dto/CustomerDto.java
+ com.mapsa.webstore.customer.dto.CustomerDto
+com/mapsa/webstore/customer/service/CustomerService.java
+ com.mapsa.webstore.customer.service.CustomerService
+com/mapsa/webstore/customer/domain/LegalCustomer.java
+ com.mapsa.webstore.customer.domain.LegalCustomer
+com/mapsa/webstore/customer/repository/RealCustomerRepository.java
+ com.mapsa.webstore.customer.repository.RealCustomerRepository
+com/mapsa/webstore/customer/dto/LegalCustomerDto.java
+ com.mapsa.webstore.customer.dto.LegalCustomerDto
+com/mapsa/webstore/customer/controller/CustomerCreationController.java
+ com.mapsa.webstore.customer.controller.CustomerCreationController
+com/mapsa/webstore/customer/dto/Location.java
+ com.mapsa.webstore.customer.dto.Location
+com/mapsa/webstore/customer/controller/RealCustomerSearchController.java
+ com.mapsa.webstore.customer.controller.RealCustomerSearchController
+com/mapsa/webstore/customer/repository/LegalCustomerRepository.java
+ com.mapsa.webstore.customer.repository.LegalCustomerRepository
+com/mapsa/webstore/customer/domain/RealCustomer.java
+ com.mapsa.webstore.customer.domain.RealCustomer
